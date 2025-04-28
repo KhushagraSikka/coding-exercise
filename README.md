@@ -1,76 +1,225 @@
-<h2 align="center">
-  Portfolio Website - v2.0<br/>
-  <a href="https://soumyajit.vercel.app/" target="_blank">soumyajit.tech</a>
-</h2>
-<div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
-</div>
+# KetoPilot ð
 
-<br/>
+A sophisticated Flutter application for metabolic health optimization, focused on gram-centric macro tracking and biomarker monitoring for ketogenic therapy.
 
-<center>
+## ð± Features
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) &nbsp;
-![GitHub Repo stars](https://img.shields.io/github/stars/soumyajit4419/Portfolio?color=red&logo=github&style=for-the-badge) &nbsp;
-![GitHub forks](https://img.shields.io/github/forks/soumyajit4419/Portfolio?color=red&logo=github&style=for-the-badge)
+### Core Functionality
+- **Gram-Centric Tracking**: Focus on grams rather than calories for precise macro management
+- **Smart Goal System**: Different approaches for carbs (limits) vs protein/fat (goals)
+- **Biomarker Monitoring**: Track glucose, BHB (ketones), and GKI (Glucose Ketone Index)
+- **Real-time Health Status**: Color-coded indicators for optimal, good, and high ranges
+- **Animated Progress Bars**: Beautiful visual feedback for daily nutrition progress
 
-</center>
+### UI/UX Excellence
+- **Professional Medical Theme**: Clean, medical-grade green color scheme
+- **Responsive Design**: Optimized for all screen sizes from iPhone SE to iPad Pro
+- **MacroFactor-Inspired Design**: Clean bottom navigation with floating action button
+- **Swipeable Views**: Swipe between Daily and Weekly views for both Nutrition and Biomarkers
+- **Smooth Animations**: Polished micro-interactions throughout the app
 
-<h3 align="center">
-    ð¹
-    <a href="https://github.com/soumyajit4419/Portfolio/issues">Report Bug</a> &nbsp; &nbsp;
-    ð¹
-    <a href="https://github.com/soumyajit4419/Portfolio/issues">Request Feature</a>
-</h3>
+### Dashboard Features
+- **Daily & Weekly Nutrition**: Swipe between daily macro bars and weekly nutrition trends
+- **Daily & Weekly Biomarkers**: Toggle between current readings and weekly biomarker patterns
+- **GKI Circle Display**: Prominent glucose-ketone index with color-coded health status
+- **Quick Actions Grid**: Fast access to logging, food diary, health tracking, and analytics
+- **Health Metrics Overview**: Weight, heart rate, and other key indicators
+- **Recent Readings**: Timeline of recent glucose and ketone measurements
 
-## TL;DR
+## ð Getting Started
 
-You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [Soumyajit4419](https://github.com/soumyajit4419/Portfolio). Thanks!
+### Prerequisites
+- Flutter SDK (>=3.0.0)
+- Dart SDK (>=3.0.0)
+- iOS Simulator or Android Emulator
+- Xcode (for iOS development)
+- Android Studio (for Android development)
 
-## Built With
+### Installation
 
-My personal portfolio <a href="https://soumyajit.vercel.app/" target="_blank">soumyajit.tech</a> which features some of my github projects as well as my resume and technical skills.<br/>
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/priyamthakkar2001/KetoPilot.git
+   cd KetoPilot
+   ```
 
-This project was built using these technologies.
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
 
-- React.js
-- Node.js
-- Express.js
-- CSS3
-- VsCode
-- Vercel
+3. **Generate auto route files**
+   ```bash
+   flutter packages pub run build_runner build
+   ```
 
-## Features
+4. **Run the application**
+   ```bash
+   # iOS Simulator
+   flutter run -d ios
+   
+   # Android Emulator  
+   flutter run -d android
+   
+   # macOS Desktop
+   flutter run -d macos
+   
+   # Web Browser
+   flutter run -d chrome
+   ```
 
-**ð Multi-Page Layout**
+## ð Core Widgets
 
-**ð¨ Styled with React-Bootstrap and Css with easy to customize colors**
+### MacroBarsWidget
+Displays daily macro consumption with animated vertical bars:
+- **Carbs**: Red bars with dotted limit lines
+- **Protein**: Blue bars with solid goal lines  
+- **Fat**: Green bars with solid goal lines
+- Color changes when limits are exceeded
 
-**ð± Fully Responsive**
+### MoleculeBarsWidget
+Shows biomarker readings with health status indicators:
+- **Glucose**: Orange bars (mg/dL) with optimal/good/high status
+- **BHB**: Yellow bars (mmol/L) with ketosis indicators
+- **GKI**: Blue bars with optimal ranges
 
-## Getting Started
+### SwipeableSectionWidget
+Container for Daily/Weekly views with:
+- Smooth PageView transitions
+- Tab indicators showing current view
+- Visual swipe hints
+- Consistent action buttons
 
-Clone down this repository. You will need `node.js` and `git` installed globally on your machine.
+## ð¨ Design System
 
-## ð  Installation and Setup Instructions
+### Color Palette
+- **Primary**: Medical green (#4CAF50)
+- **Secondary**: Complementary medical blue
+- **Status Colors**: 
+  - Optimal: Green
+  - Good: Orange  
+  - Critical: Red
+- **Background**: Clean whites and light grays
 
-1. Installation: `npm install`
+### Typography
+- **Headlines**: Bold, medical-grade typography
+- **Body Text**: Clean, readable sans-serif
+- **Data Values**: Emphasized numerical displays
+- **Status Labels**: Color-coded health indicators
 
-2. In the project directory, you can run: `npm start`
+## ðï¸ Architecture
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-The page will reload if you make edits.
+### Clean Architecture Implementation
+```
+lib/
+âââ core/                   # Core utilities and constants
+â   âââ constants/         # App-wide constants
+â   âââ themes/           # Theme configuration
+â   âââ router/           # Auto route configuration
+âââ features/             # Feature-based organization
+â   âââ dashboard/        # Main dashboard feature
+â   âââ data_entry/       # Biomarker logging
+â   âââ food_diary/       # Nutrition tracking
+â   âââ health_logging/   # Symptom tracking
+âââ shared/              # Shared widgets and utilities
+    âââ widgets/         # Reusable UI components
+    âââ extensions/      # Dart extensions
+```
 
-## Usage Instructions
+### State Management
+- **Riverpod**: For reactive state management
+- **Freezed**: For immutable data classes
+- **Auto Route**: For declarative navigation
 
-Open the project folder and Navigate to `/src/components/`. <br/>
-You will find all the components used and you can edit your information accordingly.
+## ð Data Models
 
-### Show your support
+### HealthMetric
+```dart
+@freezed
+class HealthMetric with _$HealthMetric {
+  const factory HealthMetric({
+    required String id,
+    required DateTime timestamp,
+    required double value,
+    required String unit,
+    required HealthMetricType type,
+  }) = _HealthMetric;
+}
+```
 
-Give a â­ if you like this website!
+### FoodEntry
+```dart
+@freezed 
+class FoodEntry with _$FoodEntry {
+  const factory FoodEntry({
+    required String id,
+    required String name,
+    required double carbsGrams,
+    required double proteinGrams,
+    required double fatGrams,
+    required DateTime timestamp,
+  }) = _FoodEntry;
+}
+```
 
-<a href="https://www.buymeacoffee.com/soumyajit4419" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height= "60px" width= "217px" ></a>
+## ð§ Development Tools
+
+### Code Generation
+```bash
+# Generate freezed classes
+flutter packages pub run build_runner build
+
+# Watch for changes (development)
+flutter packages pub run build_runner watch
+```
+
+### Testing
+```bash
+# Run unit tests
+flutter test
+
+# Run integration tests  
+flutter drive --target=test_driver/app.dart
+```
+
+### Build & Release
+```bash
+# Build for iOS
+flutter build ios --release
+
+# Build for Android
+flutter build appbundle --release
+
+# Build for macOS
+flutter build macos --release
+
+# Build for Web
+flutter build web --release
+```
+
+## ð± Platform Support
+
+| Platform | Status | Notes |
+|----------|--------|-------|
+| iOS | â Supported | iOS 11.0+ |
+| Android | â Supported | Android 6.0+ (API 23+) |
+| macOS | â Supported | macOS 10.14+ |
+| Web | â Supported | Chrome, Safari, Firefox |
+| Windows | ð Planned | Future release |
+| Linux | ð Planned | Future release |
+
+## ð¤ Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Guidelines
+- Follow the established clean architecture patterns
+- Use Freezed for data models
+- Implement proper error handling
+- Add unit tests for new features
+- Follow the existing design system
+- Ensure responsive design across all screen sizes
